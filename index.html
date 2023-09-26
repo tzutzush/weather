@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/output.css" />
-    <script type="module" src="/src/index.ts"></script>
-    <title>Air Quality</title>
+    <link href="dist/output.css" rel="stylesheet" />
   </head>
-  <body class="bg-slate-50 font-sans">
+  <body class="font-sans bg-beige">
     <header class="flex justify-around items-center">
       <img
         class="h-20 w-20"
         src="https://cdn-icons-png.flaticon.com/128/2938/2938006.png"
       />
+      <input
+        class="w-1/4 p-3 pl-5 rounded-full outline-green-700 shadow-sbar"
+        type="text"
+        placeholder="Search.."
+      />
       <nav>
-        <ul class="nav-links flex gap-4">
+        <ul class="nav-links flex gap-5">
           <li
-            class="text-lg transition ease-in-out delay-75 hover:text-green-700"
+            class="text-xl tracking-wide text-gray-700 transition ease-in-out delay-75 hover:text-green-700 font-bold"
+          >
+            <a href="/weather">WEATHER</a>
+          </li>
+          <li
+            class="text-xl tracking-wide text-gray-700 transition ease-in-out delay-75 hover:text-green-700 font-bold"
           >
             <a href="/air-quality">AIR QUALITY</a>
           </li>
           <li
-            class="text-lg transition ease-in-out delay-75 hover:text-green-700"
-          >
-            <a href="/daily-comic">DAILY COMIC</a>
-          </li>
-          <li
-            class="text-lg transition ease-in-out delay-75 hover:text-green-700"
+            class="text-xl tracking-wide text-gray-700 transition ease-in-out delay-75 hover:text-green-700 font-bold"
           >
             <a href="/daily-chuck-norris">DAILY CHUCK NORRIS</a>
           </li>
         </ul>
       </nav>
     </header>
-    <main id="main" class="flex justify-center"></main>
+    <main id="main" class="flex mt-12 w-auto">
+      <div class="felső rész város kép fok">
+        <div>
+          <h2>Szeged</h2>
+          <p>Humidity 67%</p>
+        </div>
+        <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="" />
+        <p>31<span>°C</span></p>
+      </div>
+      <div></div>
+    </main>
   </body>
 </html>
