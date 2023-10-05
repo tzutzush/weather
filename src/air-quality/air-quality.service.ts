@@ -1,19 +1,25 @@
+import { injectable } from "tsyringe";
 import {
   AirQualityApiResponse,
   CURRENT_CONDITIONS_URL,
 } from "./air-quality-constants";
+import { LocationService } from "../shared/location-service";
 
-interface Location {
-  latitude: number;
-  longitude: number;
-}
-
+@injectable()
 export class AirQualityService {
   private url = CURRENT_CONDITIONS_URL;
+  constructor(private locationService: LocationService) {}
 
-  async getAirQualityBasedOnLocation(): Promise<AirQualityApiResponse> {
+  async getAirQualityBasedOnLocation(
+    locationInput?: string
+  ): Promise<AirQualityApiResponse> {
     try {
-      const location = await this.getCurrentLocation();
+      let location;
+      if (!locationInput) {
+        location = await this.locationService.getCurrentLocation();
+      } else {
+        location = await this.locationService.geocodePlace(locationInput);
+      }
       const headers = {
         "Content-Type": "application/json",
       };
@@ -36,19 +42,5 @@ export class AirQualityService {
     } catch (error) {
       throw error;
     }
-  }
-
-  private async getCurrentLocation(): Promise<Location> {
-    return new Promise((resolve, _) => {
-      navigator.geolocation.getCurrentPosition(
-        (position: GeolocationPosition) => {
-          const location = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          };
-          resolve(location);
-        }
-      );
-    });
   }
 }

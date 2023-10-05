@@ -1,5 +1,6 @@
-export const API_KEY = "AIzaSyA9wGcs9fm7tRPCoaCMT1qGiV3ZPMfg_Mg";
-export const CURRENT_CONDITIONS_URL = `https://airquality.googleapis.com/v1/currentConditions:lookup?key=${API_KEY}`;
+import { GOOGLE_API_KEY } from "../shared/location-service";
+
+export const CURRENT_CONDITIONS_URL = `https://airquality.googleapis.com/v1/currentConditions:lookup?key=${GOOGLE_API_KEY}`;
 
 export interface AirQualityApiResponse {
   dateTime: string;
@@ -30,33 +31,68 @@ interface AirQualityIndex {
   dominantPollutant: string;
 }
 
-export const html = `<div class="flex flex-col">
-<div>
-  <h2>Air Quality index in your immediate vicinity:</h2>
-  <p id="airQualityIndex"></p>
-  <p id="airQualityVerbal"></p>
+export const AIR_QUALITY_HTML = `<div class="flex gap-8 justify-center">
+<div class="w-1/3 text-center flex flex-col gap-8">
+  <div class="flex flex-col gap-2">
+    <h2 class="text-5xl font-bold text-gray-800"></h2>
+    <p id="airQualityVerbal" class="text-slate-600 font-medium"></p>
+  </div>
+  <h2 id="airQualityIndex" class="text-6xl text-gray-800">
+    <span class="text-base">AQI</span>
+  </h2>
 </div>
-<div>
-  <h2>Health Recommendations:</h2>
+<div
+  class="basis-1/2 bg-lightGrey p-8 rounded-2xl shadow-sbar flex flex-col gap-3"
+>
+  <h2 class="text-4xl tracking-tight font-semibold">
+    Health Recommendations
+  </h2>
   <div>
-    <h3>General Population</h3>
-    <p id="generalPopulation"></p>
+    <h3
+      class="text-xl tracking-tight inline-block bg-green-700 text-white p-1 rounded-lg"
+    >
+      General Population
+    </h3>
+    <p class="text-justify text-lg tracking-tight" id="generalPopulation"></p>
   </div>
   <div>
-    <h3>Lung Disease</h3>
-    <p id="lungDiseasePopulation"></p>
+    <h3
+      class="text-xl tracking-tight inline-block bg-green-700 text-white p-1 rounded-lg"
+    >
+      Lung Disease
+    </h3>
+    <p
+      class="text-justify text-lg tracking-tight"
+      id="lungDiseasePopulation"
+    ></p>
   </div>
   <div>
-    <h3>Heart Disease</h3>
-    <p id="heartDiseasePopulation"></p>
+    <h3
+      class="text-xl tracking-tight inline-block bg-green-700 text-white p-1 rounded-lg"
+    >
+      Heart Disease
+    </h3>
+    <p
+      class="text-justify text-lg tracking-tight"
+      id="heartDiseasePopulation"
+    ></p>
   </div>
   <div>
-    <h3>Pregnant Women</h3>
-    <p id="pregnantWomen"></p>
+    <h3
+      class="text-xl tracking-tight inline-block bg-green-700 text-white p-1 rounded-lg"
+    >
+      Pregnant Women
+    </h3>
+    <p class="text-justify text-lg tracking-tight" id="pregnantWomen"></p>
   </div>
   <div>
-    <h3>Children</h3>
-    <p id="children"></p>
+    <h3
+      class="text-xl tracking-tight inline-block bg-green-700 text-white p-1 rounded-lg"
+    >
+      Children
+    </h3>
+    <p class="text-justify text-lg tracking-tight" id="children"></p>
   </div>
 </div>
-</div>`;
+</div>
+`;

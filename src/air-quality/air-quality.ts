@@ -1,13 +1,20 @@
-import { inject, injectable } from "tsyringe";
-import { AirQualityApiResponse, html } from "./air-quality-constants";
+import { injectable } from "tsyringe";
+import {
+  AIR_QUALITY_HTML,
+  AirQualityApiResponse,
+} from "./air-quality-constants";
 import { AirQualityService } from "./air-quality.service";
 
 @injectable()
 export class AirQuality {
   constructor(public service: AirQualityService) {}
-  async displayData() {
-    const data: AirQualityApiResponse =
-      await this.service.getAirQualityBasedOnLocation();
+  async displayData(airQualityData?: AirQualityApiResponse) {
+    let data: AirQualityApiResponse;
+    if (!airQualityData) {
+      data = await this.service.getAirQualityBasedOnLocation();
+    } else {
+      data = airQualityData;
+    }
 
     const airQualityIndex: string = String(data.indexes[0].aqi);
     const airQualityVerbal: string = data.indexes[0].category;
@@ -20,7 +27,7 @@ export class AirQuality {
     const pregnantWomen: string = data.healthRecommendations.pregnantWomen;
     const children: string = data.healthRecommendations.children;
 
-    document.querySelector("#main")!.innerHTML = html;
+    document.querySelector("#main")!.innerHTML = AIR_QUALITY_HTML;
     document.querySelector("#airQualityIndex")!.textContent = airQualityIndex;
     document.querySelector("#airQualityVerbal")!.textContent = airQualityVerbal;
     document.querySelector("#generalPopulation")!.textContent =

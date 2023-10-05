@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{html,ts}"],
+  content: ["./src/**/*.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "media",
   theme: {
     extend: {
       boxShadow: {
@@ -34,6 +34,9 @@ module.exports = {
         // => @media (min-width: 1536px) { ... }
       },
     },
+  },
+  variants: {
+    extend: {},
   },
   plugins: [],
 };
