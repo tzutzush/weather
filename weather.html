@@ -1,12 +1,15 @@
-<div class="top flex gap-96 justify-center">
-  <div class="flex flex-col gap-6">
-    <div class="">
-      <h2 class="text-4xl font-bold text-gray-800">Szeged</h2>
+<div class="top flex gap-96 justify-center sm:gap-48 phone:gap-6">
+  <div class="flex flex-col gap-6 items-center">
+    <div class="w-40 flex flex-col items-center">
+      <h2 class="text-4xl font-bold text-gray-800" id="location">Szeged</h2>
       <p class="text-lg font-semibold text-gray-700">
-        Humidity: <span>67%</span>
+        Humidity: <span class="humidity"></span><span>%</span>
       </p>
     </div>
-    <p class="text-6xl font-bold tracking-tighter text-gray-800">
+    <p
+      class="text-6xl font-bold tracking-tighter text-gray-800"
+      id="currentTemperature"
+    >
       31<span>°</span>
     </p>
   </div>
@@ -18,70 +21,72 @@
 </div>
 <div class="middle flex justify-center">
   <div class="flex flex-col bg-lightGrey rounded-xl max-w-4xl shadow-sbar">
-    <div>
-      <p class="font-bold tracking-tight p-5 text-gray-600">NEXT HOURS</p>
-      <div class="next hours pb-5 flex w-896 justify-around">
+    <div class="text-gray-600 font-bold">
+      <p class="tracking-tight p-5">NEXT HOURS</p>
+      <div
+        class="next hours pb-5 flex w-896 justify-around md:w-740 sm:w-610 phone:flex-col phone:w-72 phone:gap-3"
+      >
         <div
-          class="font-bold text-lg text-gray-600 flex flex-col items-center grow shrink basis-auto border-r-2 border-gray-300"
+          class="text-lg flex flex-col items-center grow shrink basis-auto border-r-2 border-gray-300 phone:border-r-0 phone:border-b-2 phone:p-3 phone:flex-row phone:justify-center"
         >
           <p class="time">19:00</p>
           <img
-            class="w-24 h-24"
+            class="w-24 h-24 phone:w-12 phone:h-12"
             src="//cdn.weatherapi.com/weather/64x64/day/113.png"
             alt="hourly time"
           />
           <p class="text-gray-800 text-2xl">25<span>°</span></p>
         </div>
         <div
-          class="font-bold text-lg text-gray-600 flex flex-col items-center grow shrink basis-auto border-r-2 border-gray-300"
+          class="text-lg flex flex-col items-center grow shrink basis-auto border-r-2 phone:border-r-0 border-gray-300 phone:border-b-2 phone:p-3 phone:flex-row phone:justify-center"
         >
           <p class="time">19:00</p>
           <img
-            class="w-24 h-24"
+            class="w-24 h-24 phone:w-12 phone:h-12"
             src="//cdn.weatherapi.com/weather/64x64/day/113.png"
             alt="hourly time"
           />
           <p class="text-gray-800 text-2xl">25<span>°</span></p>
         </div>
         <div
-          class="font-bold text-lg text-gray-600 flex flex-col items-center grow shrink basis-auto border-r-2 border-gray-300"
+          class="text-lg flex flex-col items-center grow shrink basis-auto border-r-2 phone:border-r-0 border-gray-300 phone:border-b-2 phone:p-3 phone:flex-row phone:justify-center"
         >
           <p class="time">19:00</p>
           <img
-            class="w-24 h-24"
+            class="w-24 h-24 phone:w-12 phone:h-12"
             src="//cdn.weatherapi.com/weather/64x64/day/113.png"
             alt="hourly time"
           />
           <p class="text-gray-800 text-2xl">25<span>°</span></p>
         </div>
         <div
-          class="font-bold text-lg text-gray-600 flex flex-col items-center grow shrink basis-auto border-r-2 border-gray-300"
+          class="text-lg flex flex-col items-center grow shrink basis-auto border-r-2 phone:border-r-0 border-gray-300 phone:border-b-2 phone:p-3 phone:flex-row phone:justify-center"
         >
           <p class="time">19:00</p>
           <img
-            class="w-24 h-24"
+            class="w-24 h-24 phone:w-12 phone:h-12"
             src="//cdn.weatherapi.com/weather/64x64/day/113.png"
             alt="hourly time"
           />
           <p class="text-gray-800 text-2xl">25<span>°</span></p>
         </div>
         <div
-          class="font-bold text-lg text-gray-600 flex flex-col items-center grow shrink basis-auto border-r-2 border-gray-300"
+          class="text-lg flex flex-col items-center grow shrink basis-auto border-r-2 phone:border-r-0 border-gray-300 phone:border-b-2 phone:p-3 phone:flex-row phone:justify-center"
         >
           <p class="time">19:00</p>
           <img
-            class="w-24 h-24"
+            class="w-24 h-24 phone:w-12 phone:h-12"
             src="//cdn.weatherapi.com/weather/64x64/day/113.png"
             alt="hourly time"
           />
           <p class="text-gray-800 text-2xl">25<span>°</span></p>
         </div>
         <div
-          class="font-bold text-lg text-gray-600 flex flex-col items-center grow shrink basis-auto"
+          class="text-lg flex flex-col items-center grow shrink basis-auto phone:p-3 phone:flex-row phone:justify-center"
         >
           <p class="time">19:00</p>
           <img
-            class="w-24 h-24"
+            class="w-24 h-24 phone:w-12 phone:h-12"
             src="//cdn.weatherapi.com/weather/64x64/day/113.png"
             alt="hourly time"
           />
@@ -92,23 +97,25 @@
   </div>
 </div>
 <div class="bottom flex justify-center">
-  <div class="bg-lightGrey p-5 rounded-xl max-w-4xl w-896 shadow-sbar">
-    <p class="pb-3 font-bold tracking-tight text-gray-600">AIR CONDITIONS</p>
+  <div
+    class="bg-lightGrey text-gray-600 p-5 rounded-xl max-w-4xl w-896 shadow-sbar md:w-740 sm:w-610 phone:w-72"
+  >
+    <p class="pb-3 font-bold tracking-tight">AIR CONDITIONS</p>
     <div class="grid grid-cols-2 gap-6">
       <div>
-        <p class="text-lg font-semibold text-gray-600">Real Feel</p>
+        <p class="text-lg font-semibold">Real Feel</p>
         <p class="text-3xl font-bold tracking-tighter">30<span>°</span></p>
       </div>
       <div>
-        <p class="text-lg font-semibold text-gray-600">Wind</p>
+        <p class="text-lg font-semibold">Wind</p>
         <p class="text-3xl font-bold tracking-tighter">30 <span>km/h</span></p>
       </div>
       <div>
-        <p class="text-lg font-semibold text-gray-600">Humidity</p>
+        <p class="text-lg font-semibold">Humidity</p>
         <p class="text-3xl font-bold tracking-tighter">31 <span>%</span></p>
       </div>
       <div>
-        <p class="text-lg font-semibold text-gray-600">UV index</p>
+        <p class="text-lg font-semibold">UV index</p>
         <p class="text-3xl font-bold tracking-tighter">6</p>
       </div>
     </div>
