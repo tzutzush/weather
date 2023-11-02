@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="bundle.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,700,0,0"
+    />
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.querySelector(".sidebar");
+        if (sidebar.style.display == "none") {
+          sidebar.style.display = "flex";
+        } else {
+          sidebar.style.display = "none";
+        }
+      }
+    </script>
+    <title>Air Quality</title>
+  </head>
+  <body class="bg-slate-50 font-sans">
+    <header
+      class="flex justify-around phone:justify-between phone:pr-5 phone:pl-5 items-center mt-2 phone:mt-4"
+    >
+      <img
+        class="h-20 w-20 sm:hidden phone:hidden"
+        src="https://cdn-icons-png.flaticon.com/128/2938/2938006.png"
+      />
+      <form class="w-1/4" id="searchBar">
+        <input
+          class="w-full p-3 pl-5 rounded-full outline-green-700 shadow-sbar phone:w-64"
+          type="text"
+          placeholder="Search.."
+          id="searchInput"
+        />
+      </form>
+      <nav>
+        <ul
+          class="sidebar tracking-wide text-gray-700 font-bold hidden flex-col gap-6 fixed top-0 left-0 w-screen h-full z-50 p-5 bg-zinc-200"
+        >
+          <li>
+            <span
+              onclick="toggleSidebar()"
+              class="material-symbols-sharp cursor-pointer"
+            >
+              close
+            </span>
+          </li>
+          <li class="">
+            <a onclick="toggleSidebar()" href="#weather">WEATHER</a>
+          </li>
+          <li class="">
+            <a onclick="toggleSidebar()" href="#air-quality">AIR QUALITY</a>
+          </li>
+          <li class="">
+            <a onclick="toggleSidebar()" href="#daily-chuck-norris"
+              >DAILY CHUCK NORRIS</a
+            >
+          </li>
+        </ul>
+        <ul
+          class="nav-links flex gap-5 md:gap-4 text-xl md:text-lg md:m-4 sm:text-base"
+        >
+          <li
+            class="tracking-wide text-gray-700 transition ease-in-out delay-75 hover:text-green-700 font-bold phone:hidden"
+          >
+            <a href="#weather">WEATHER</a>
+          </li>
+          <li
+            class="tracking-wide text-gray-700 transition ease-in-out delay-75 hover:text-green-700 font-bold phone:hidden"
+          >
+            <a href="#air-quality">AIR QUALITY</a>
+          </li>
+          <li
+            class="tracking-wide text-gray-700 transition ease-in-out delay-75 hover:text-green-700 font-bold phone:hidden"
+          >
+            <a href="#daily-chuck-norris">DAILY CHUCK NORRIS</a>
+          </li>
+          <li class="sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden">
+            <span
+              onclick="toggleSidebar()"
+              class="material-symbols-sharp cursor-pointer"
+            >
+              menu
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main
+      id="main"
+      class="flex flex-col mt-12 lg:mt-6 w-auto gap-12 lg:gap-6"
+    ></main>
+  </body>
+</html>
